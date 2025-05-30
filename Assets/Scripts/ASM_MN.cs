@@ -58,18 +58,30 @@ public class ASM_MN : Singleton<ASM_MN>
     public void YC2()
     {
         // sinh viên viết tiếp code ở đây
-        listPlayer.ForEach(player =>
+        listPlayer
+        .ForEach(player =>
         {
-            Debug.Log($"ID: {player.ID} | Name: {player.Name} | Score: {player.Score} | Region: {player.Region.Name}, Rank: {calculate_rank(player.Score)}");
+            Debug.Log($"Y02. ID: {player.ID} | Name: {player.Name} | Score: {player.Score} | Region: {player.Region.Name}, Rank: {calculate_rank(player.Score)}");
         });
     }
     public void YC3()
     {
         // sinh viên viết tiếp code ở đây
-        listPlayer.Where(player => player.Score < playerCurrent.Score).ToList().ForEach(player =>
+        var lowerScorePlayers = listPlayer
+        .Where(player => player.Score < playerCurrent.Score)
+        .ToList();
+        if (lowerScorePlayers.Count > 0)
         {
-            Debug.Log($"Score bé hơn: ID: {player.ID} | Name: {player.Name} | Score: {player.Score} | Region: {player.Region.Name}, Rank: {calculate_rank(player.Score)}");
-        });
+            lowerScorePlayers
+            .ForEach(player =>
+                    {
+                        Debug.Log($"Y03. Score hiện tại: {playerCurrent.Score}\nID: {player.ID} | Name: {player.Name} | Score: {player.Score} | Region: {player.Region.Name}, Rank: {calculate_rank(player.Score)}");
+                    });
+        }
+        else
+        {
+            Debug.Log("Y03. Không có người chơi nào có điểm số thấp hơn điểm số hiện tại.");
+        }
     }
     public void YC4()
     {
