@@ -1,0 +1,6 @@
+🚩BXH Score Trung Bình Theo Region🚩
+Region: VN, Average Score: 750
+Region: VN1, Average Score: 300
+Region: VN2, Average Score: 800
+Region: JS, Average Score: 1200
+Region: VS, Average Score: 600

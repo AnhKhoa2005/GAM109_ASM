@@ -40,9 +40,10 @@ public class ScoreKeeper : Singleton<ScoreKeeper>
     public void ResetScore(string userName, int IDregion)
     {
         score = 0;
-        this.ID = Random.Range(0,19999);
+        this.ID = Random.Range(0, 19999);
         this.userName = userName;
         this.IDregion = IDregion;
     }
-    
+
+
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelManager : MonoBehaviour
 {
@@ -49,14 +50,23 @@ public class LevelManager : MonoBehaviour
 
     public void LoadGame()
     {
+
         if (userName.text.Trim().Length == 0) return;
         ScoreKeeper.Instance.ResetScore(userName.text, dropdown.value);
         SceneManager.LoadScene("Game");
     }
 
+    public void PlayAgain()
+    {
+        ScoreKeeper.Instance.score = 0;
+        ASM_MN.Instance.listPlayer.Remove(ASM_MN.Instance.listPlayer[ASM_MN.Instance.listPlayer.Count - 1]);
+        SceneManager.LoadScene("Game");
+    }
+
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+
+        SceneManager.LoadScene("Game");
     }
 
     public void LoadGameOver()
